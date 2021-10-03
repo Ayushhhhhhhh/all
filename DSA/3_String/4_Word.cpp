@@ -13,9 +13,6 @@ int main()
             word++;
         }
     }
-    cout << word;
-    int nice;
-    
 
     return 0;
 }
