@@ -1,18 +1,24 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 using namespace std;
 int main()
 {
-    char s[] = "Hello i am Ayush Singhal";
-    int i;
-    for (i = 0; s[i] != '\0'; i++)
+    char s[] = "lahgniS hsuyA ma i olleH";
+
+    char ch[50];
+
+    int len = strlen(s);
+    for (int i = 0; i < len; i++)
     {
+
+        // convert str[i] to lowercase
+        ch[i] = tolower(s[i]);
     }
-    tolower(s);
-    for (int j = 0; j < i; j++, i--)
+    for (int j = 0; j < len; j++, len--)
     {
-        swap(s[j], s[i - 1]);
+        swap(ch[j], ch[len - 1]);
     }
-    cout << s;
+    cout << ch;     
+
     return 0;
-}
+}       
