@@ -22,6 +22,7 @@ int main()
         if (str1[i] == str2[j])
         {
             j++;
+            
             if (str2[j] == '\0')
             {
                 end = i;
