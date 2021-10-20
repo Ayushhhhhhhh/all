@@ -10,6 +10,7 @@ struct Node *tmp;
 
 void insert(int item)
 {
+
     struct Node *node;
     node = new Node;
     node->data = item;
@@ -21,6 +22,11 @@ void insert(int item)
     }
     else
     {
+        tmp = head;
+        while (tmp->Next != NULL)
+        {
+            tmp = tmp->Next;
+        }
         tmp->Next = node;
         tmp = node;
     }
@@ -42,6 +48,30 @@ void insert(int item, int index)
     tmp->Next = node;
 }
 
+void deleteHead()
+{
+    head = head->Next;
+}
+void deleteTail()
+{
+    while (tmp->Next->Next != NULL)
+    {
+        tmp = tmp->Next;
+    }
+    tmp->Next = NULL;
+}
+void deleteAt(int index)
+{
+    int i = 2;
+    tmp = head;
+    while (i < index)
+    {
+        tmp = tmp->Next;
+        i++;
+    }
+    tmp->Next = tmp->Next->Next;
+}
+
 void display()
 {
     tmp = head;
@@ -50,7 +80,7 @@ void display()
         cout << tmp->data << "->";
         tmp = tmp->Next;
     }
-    cout << "NULL";
+    cout << "NULL" << endl;
 }
 int main()
 {
@@ -58,9 +88,14 @@ int main()
     insert(6);
     insert(2);
     insert(3);
+    deleteHead();
+    display();
+
     insert(30);
     insert(4, 3);
+    deleteTail();
     insert(7, 1);
+    deleteAt(3);
     display();
     return 0;
 }
