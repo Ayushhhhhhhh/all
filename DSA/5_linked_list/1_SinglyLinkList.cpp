@@ -29,8 +29,6 @@ void insert(int item)
         }
         tmp->Next = node;
         tmp = node;
-        
-
     }
 }
 
