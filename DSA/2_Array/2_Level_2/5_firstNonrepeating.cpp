@@ -39,17 +39,18 @@ void printArray(int arr[100], int n)
 void pairSum(int *arr, int n, int key)
 {
     int sum;
+    int repeat =1;
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            sum = arr[i] + arr[j];
-            if (sum == key)
-            {
-                cout << "pair of:" << arr[i] << " and " << arr[i + 1] << " found at index " << i << "," << i + 1 << " gives the sum of " << key << endl;
-            }
-            else
+            if (arr[i]==arr[j])
+            {   
                 break;
+            }
+            else if(arr[i]!)
+                cout << "pair of:" << arr[i] << " and " << arr[i + 1] << " found at index " << i << "," << i + 1 << " gives the sum of " << key << endl;
+
         }
     }
 }

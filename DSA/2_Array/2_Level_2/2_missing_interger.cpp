@@ -19,7 +19,7 @@ int scanArray(int *arr, int n)
 {
 
     cout << "Enter element of array: \n";
-    for (int i = 0; i < n-1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         cin >> arr[i];
     }

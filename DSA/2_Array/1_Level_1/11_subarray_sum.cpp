@@ -19,7 +19,7 @@ int main()
         {
             if (currentsum == sum)
             {
-                cout << "sum of element from " << i << " to " << j - 1 << " is " << sum << endl;
+                cout << "sum of element from " << i + 1 << " to " << j << " is " << sum << endl;
                 break;
             }
             else if (currentsum > sum)
