@@ -25,8 +25,6 @@ int main(void)
                 y++;
                 //for each line middle term = sqaure of x till now - the previous sum
                 middle = pow(x, 2) - pow(px, 2);
-                
-            
             }
             else
             {
