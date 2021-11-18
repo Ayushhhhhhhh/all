@@ -5,7 +5,7 @@ struct node
     int data;
     struct node *next;
 
-} * head;
+} *head = NULL;
 void inserthead(int x)
 {
     struct node *new_node = (struct node *)malloc(sizeof(struct node));
@@ -34,20 +34,25 @@ void removeduplicate()
     struct node *q = (struct node *)malloc(sizeof(struct node));
     struct node *qprev = (struct node *)malloc(sizeof(struct node));
     p = head;
-    q = p->next;
-    while (p != 0)
+    while (p->next != NULL )
     {
-        while (q != 0)
+        qprev = p;
+        q = p->next;
+        while (q != NULL)
         {
             if (p->data == q->data)
             {
-                p->next = q->next;
-                free(q);
-                q = p->next;
-                break;
-                
+                struct node *qfree = (struct node *)malloc(sizeof(struct node));
+                qfree = q;
+                qprev->next = q->next;
+                q = q->next;
+                free(qfree);
             }
-            q = q->next;
+            else
+            {
+                q = q->next;
+                qprev = qprev->next;
+            }
         }
         p = p->next;
     }
@@ -62,7 +67,7 @@ int main()
         scanf("%d", &x);
         inserthead(x);
     }
-    //print();
+    print();
     removeduplicate();
     print();
     return 0;
