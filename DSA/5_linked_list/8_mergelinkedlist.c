@@ -20,7 +20,6 @@ void initialize(int arr[4])
         else
         {
             tail1->Next = newnode;
-
             tail1 = newnode;
         }
     }

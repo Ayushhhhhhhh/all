@@ -15,6 +15,7 @@ struct Person
 
 int main()
 {
+
     struct Student g1 = {"Ayush Singhal", 24, 041102, "SKIT Jaipur"};
     struct Student g2 = {"Harshit Sen", 42, 28121997, "Room no :18"};
     printf("Student information :\n");
