@@ -95,7 +95,7 @@ int main()
     insert(4, 3);
     deleteTail();
     insert(7, 1);
-    deleteAt(3);
+    deleteAt(2);
     display();
     return 0;
 }
