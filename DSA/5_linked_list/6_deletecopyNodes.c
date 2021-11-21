@@ -35,11 +35,9 @@ void print()
 }
 void removeduplicate()
 {
-    struct node *p = (struct node *)malloc(sizeof(struct node));
-    struct node *q = (struct node *)malloc(sizeof(struct node));
-    struct node *qprev = (struct node *)malloc(sizeof(struct node));
+    struct node *p, *q, *qprev;
     p = head;
-    while (p->Next != NULL)
+    while (p != NULL || p->Next != NULL)
     {
         qprev = p;
         q = p->Next;
@@ -47,25 +45,26 @@ void removeduplicate()
         {
             if (p->data == q->data)
             {
-                struct node *qfree;
+                struct node *qfree;     
                 qfree = q;
 
                 if (q->Next != NULL)
                 {
                     qprev->Next = q->Next;
-                    q = qprev->Next;
                 }
                 else
                 {
                     qprev->Next = NULL;
                 }
+                qfree->Next = NULL;
                 free(qfree);
             }
             else
             {
                 qprev = qprev->Next;
             }
-            q = q->Next;
+
+            q = qprev->Next;
         }
         p = p->Next;
     }

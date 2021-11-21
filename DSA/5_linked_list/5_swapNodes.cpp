@@ -28,6 +28,7 @@ void swap(int a, int b)
         if (bnode == NULL || anode == NULL)
         {
             cout << "Element Not present!\n";
+            return;
         }
         if (prevA != NULL)
         {
