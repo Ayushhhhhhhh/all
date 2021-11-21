@@ -3,30 +3,35 @@
 struct node
 {
     int data;
-    struct node *next;
+    struct node *Next;
 
-} *head = NULL;
-void inserthead(int x)
+} *head = NULL, *tail = NULL;
+void insert(int item)
 {
-    struct node *new_node = (struct node *)malloc(sizeof(struct node));
-    new_node->data = x;
-    new_node->next = NULL;
-    if (head != NULL)
+
+    struct node *node = (struct node *)malloc(sizeof(struct node));
+    node->data = item;
+    node->Next = NULL;
+    if (head == NULL)
     {
-        new_node->next = head;
+        head = tail = node;
     }
-    head = new_node;
+    else
+    {
+        tail->Next = node;
+        tail = node;
+    }
 }
 void print()
 {
-    struct node *new_node = (struct node *)malloc(sizeof(struct node));
-    new_node = head;
-    while (new_node != NULL)
+    struct node *tmp;
+    tmp = head;
+    while (tmp != NULL)
     {
-        printf("%d  ", new_node->data);
-        new_node = new_node->next;
+        printf("%d  ", tmp->data);
+        tmp = tmp->Next;
     }
-    printf("\n");
+    printf("NULL\n");
 }
 void removeduplicate()
 {
@@ -34,27 +39,35 @@ void removeduplicate()
     struct node *q = (struct node *)malloc(sizeof(struct node));
     struct node *qprev = (struct node *)malloc(sizeof(struct node));
     p = head;
-    while (p->next != NULL )
+    while (p->Next != NULL)
     {
         qprev = p;
-        q = p->next;
+        q = p->Next;
         while (q != NULL)
         {
             if (p->data == q->data)
             {
-                struct node *qfree = (struct node *)malloc(sizeof(struct node));
+                struct node *qfree;
                 qfree = q;
-                qprev->next = q->next;
-                q = q->next;
+
+                if (q->Next != NULL)
+                {
+                    qprev->Next = q->Next;
+                    q = qprev->Next;
+                }
+                else
+                {
+                    qprev->Next = NULL;
+                }
                 free(qfree);
             }
             else
             {
-                q = q->next;
-                qprev = qprev->next;
+                qprev = qprev->Next;
             }
+            q = q->Next;
         }
-        p = p->next;
+        p = p->Next;
     }
 }
 int main()
@@ -65,10 +78,13 @@ int main()
     for (i = 0; i < n; i++)
     {
         scanf("%d", &x);
-        inserthead(x);
+        insert(x);
     }
+    printf("LINKED LIST with given elements is :\n");
     print();
     removeduplicate();
+    printf("LINKED LIST after removing duplicate elements is :\n");
+
     print();
     return 0;
 }

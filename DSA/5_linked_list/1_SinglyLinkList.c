@@ -1,38 +1,33 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 struct Node
 {
     /* data */
     int data;
-    Node *Next;
+    struct Node *Next;
 } *head = NULL;
-struct Node *tmp;
+struct Node *tmp, *tail = NULL;
 
 void insert(int item)
 {
 
-    struct Node *node;
-    node = new Node;
+    struct Node *node = (struct Node *)malloc(sizeof(struct Node));
     node->data = item;
     node->Next = NULL;
     if (head == NULL)
     {
         head = node;
-        tmp = node;
+        tail = node;
     }
     else
     {
-        tmp = head;
-        while (tmp->Next != NULL)
-        {
-            tmp = tmp->Next;
-        }
-        tmp->Next = node;
-        tmp = node;
+
+        tail->Next = node;
+        tail = node;
     }
 }
 
-void insert(int item, int index)
+void insertat(int item, int index)
 {
     int i = 1;
     tmp = head;
@@ -41,8 +36,7 @@ void insert(int item, int index)
         tmp = tmp->Next;
         i++;
     }
-    struct Node *node;
-    node = new Node;
+    struct Node *node = (struct Node *)malloc(sizeof(struct Node));
     node->data = item;
     node->Next = tmp->Next;
     tmp->Next = node;
@@ -77,10 +71,10 @@ void display()
     tmp = head;
     while (tmp != NULL)
     {
-        cout << tmp->data << "->";
+        printf("%d->", tmp->data);
         tmp = tmp->Next;
     }
-    cout << "NULL" << endl;
+    printf("NULL");
 }
 int main()
 {
@@ -88,14 +82,12 @@ int main()
     insert(6);
     insert(2);
     insert(3);
-    deleteHead();
-    display();
-
+    //  deleteHead();
     insert(30);
-    insert(4, 3);
-    deleteTail();
-    insert(7, 1);
-    deleteAt(2);
+    // insertat(4, 3);
+    // deleteTail();
+    insertat(3, 1);
+    // deleteAt(2);
     display();
     return 0;
 }

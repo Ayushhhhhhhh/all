@@ -6,7 +6,7 @@ struct Node
 {
     int Data;
     struct Node *Next;
-} *head = NULL, *top, *tmp, *newnode;
+} *head = NULL, *top, *tmp,*avail, *newnode;
 void push(void);
 void pop(void);
 void display(void);
@@ -51,18 +51,18 @@ int main()
 }
 void push()
 {
-    tmp = (struct Node *)malloc(sizeof(struct Node));
-    if (!tmp)
+    avail = (struct Node *)malloc(sizeof(struct Node));
+    if (!avail)
     {
         printf("\n\tHeap overflow");
     }
     else
     {
-        newnode = tmp;
+        newnode = avail;
         printf(" Enter a value to be pushed:");
         scanf("%d", &x);
-        tmp->Data = x;
-        tmp->Next = top;
+        newnode->Data = x;
+        newnode->Next = top;
         top = tmp;
     }
 }
