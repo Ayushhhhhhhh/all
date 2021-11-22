@@ -7,6 +7,8 @@ int main()
     cin >> n;
     int arr[n];
     cout << "Enter the elements of array :\n";
+
+    
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
@@ -19,7 +21,7 @@ int main()
         arr[i] = arr[j];
         arr[j] = tmp;
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n'; i++)
     {
         cout << arr[i];
     }
