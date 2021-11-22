@@ -21,7 +21,7 @@ struct Node *insert(struct Node *root, int data)
         root = getnewnode(data);
         printf("\n%d\n", root->data);
     }
-    else if (root->data <= data)dfx
+    else if (root->data <= data)
     {
         root->right = insert(root->right, data);
     }

@@ -3,6 +3,7 @@ using namespace std;
 
 int rec_factorial(int m)
 {
+    
     if (m == 1)
         return m;
 
