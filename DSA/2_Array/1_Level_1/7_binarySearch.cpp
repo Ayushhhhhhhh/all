@@ -19,12 +19,14 @@ int main()
     cout << "Enter element to find:\n";
     cin >> key;
 
-   int result = binarySearch(arr, n - 1, key);
-    if(result == -1)
-    { cout << "Element is not present in array";
+    int result = binarySearch(arr, n - 1, key);
+    if (result == -1)
+    {
+        cout << "Element is not present in array";
     }
     else
-    {cout << "Element is present at index " << result;
+    {
+        cout << "Element is present at index " << result;
     }
     return 0;
 }
@@ -41,15 +43,12 @@ int binarySearch(int arr[], int n, int key)
         }
         else if (arr[mid] < key)
         {
-            e = mid -1;
+            e = mid - 1;
         }
-        else{
-            s = mid+1;
+        else
+        {
+            s = mid + 1;
         }
     }
-    return -1;   
+    return -1;
 }
-
-
-#include<iostream>
-using namespace std;

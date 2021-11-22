@@ -54,10 +54,12 @@ int main()
     root = insert(root, 23);
     root = insert(root, 15);
     root = insert(root, 54);
-    root = insert(root, 22);
+    root = insert(root, 63);
     root = insert(root, 90);
-    root = insert(root, 66);
-    root = insert(root, 213);
+    root = insert(root, 21);
+
+    //root = insert(root, 66);
+    //root = insert(root, 213);
     printf("Height of the Tree is : %d\n", findHeight(root));
     return 0;
 }
