@@ -1,46 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define max 20
-int x, i;
-struct Node
-{
-	int Data;
-	struct Node *Next;
-} *front = NULL, *rear = NULL, *tmp, *newnode;
+int choice, rear = -1, x, i, front = -1;
+
+void dequeue(void);
 struct bstNode
 {
 	int data;
-	struct Node *left;
-	struct Node *right;
+	struct bstNode *left;
+	struct bstNode *right;
 };
-void enqueue(int);
-void dequeue(void);
-void display(void);
-void LevelOrder(struct bstNode root){
-	if(root==NULL){
+void enqueue(struct bstNode *);
+struct bstNode *queue[100];
+
+void LevelOrder(struct bstNode *root)
+{
+	if (!root)
+	{
+		printf("EMPTY");
 		return;
 	}
-	else{
-		tmp = front;
-		while(tmp){
+	else
+	{
 		enqueue(root);
-		
+		while (front >= 0)
+		{
+			struct bstNode *current = queue[front];
+			printf("%d\t", current->data);
+			if (current->left)
+			{
+				enqueue(current->left);
+			}
+			if (current->right)
+			{
+				enqueue(current->right);
+			}
+			dequeue();
+			printf("\n");
 		}
 	}
 }
-struct Node *getnewnode(int data)
+struct bstNode *getnewnode(int data)
 {
-	struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
+	struct bstNode *newnode = (struct bstNode *)malloc(sizeof(struct bstNode));
 	newnode->data = data;
 	newnode->left = newnode->right = NULL;
 	return newnode;
 }
-struct Node *insert(struct Node *root, int data)
+struct bstNode *insert(struct bstNode *root, int data)
 {
 	if (root == NULL)
 	{
 		root = getnewnode(data);
-		printf("\n%d\n", root->data);
 	}
 	else if (root->data <= data)
 	{
@@ -59,66 +70,37 @@ int main()
 	root = insert(root, 45);
 	root = insert(root, 36);
 	root = insert(root, 23);
+	root = insert(root, 36);
+	root = insert(root, 23);
+	root = insert(root, 15);
+	root = insert(root, 54);
+	root = insert(root, 63);
+	root = insert(root, 90);
+	root = insert(root, 21);
+	LevelOrder(root);
 	return 0;
 }
-void enqueue(int x)
+void enqueue(struct bstNode *x)
 {
-	tmp = (struct Node *)malloc(sizeof(struct Node));
-	if (!tmp)
+	if (front == -1 && rear == -1)
 	{
-		printf("\n\tQueue over flow");
-	}
-
-	else if (front == NULL && rear == NULL)
-	{
-		newnode = tmp;
-		newnode->Next = NULL;
-		newnode->Data = x;
-		front = rear = newnode;
+		front = rear = 0;
+		queue[rear] = x;
 	}
 	else
 	{
-		newnode = tmp;
-		newnode->Next = NULL;
-		printf(" Enter a value to be pushed:");
-		scanf("%d", &x);
-		newnode->Data = x;
-		rear->Next = newnode;
-		rear = newnode;
+		rear++;
+		queue[rear] = x;
 	}
 }
 void dequeue()
 {
-	if (front == NULL)
+	if (front == rear)
 	{
-		printf("\n\t queue is under flow");
-	}
-	else if (front == rear)
-	{
-		front = rear = NULL;
+		front = rear = -1;
 	}
 	else
 	{
-		printf("\n\t The popped elements is %d", front->Data);
-		front = front->Next;
-	}
-}
-void display()
-{
-	if (front)
-	{
-		printf("\n The elements in QUEUE \n");
-		tmp = front;
-		while (tmp)
-		{
-			printf("%d->", tmp->Data);
-			tmp = tmp->Next;
-		}
-		printf("NULL");
-		printf("\n Press Next Choice");
-	}
-	else
-	{
-		printf("\n The QUEUE is empty");
+		front++;
 	}
 }
