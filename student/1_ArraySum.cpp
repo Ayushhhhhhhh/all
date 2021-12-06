@@ -1,9 +1,11 @@
-#include<iostream>
+
+include<iostream>
 using namespace std;
 
 int main(){
     int n;
-    cout<<"Enter no of Element:"<<endl;
+    cout+
+    <<"Enter no of Element:"<<endl;
     cin>>n;
 
     int arr1[n],arr2[n];
