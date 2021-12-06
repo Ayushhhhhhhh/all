@@ -4,18 +4,21 @@ using namespace std;
 class student
 {
 private:
-    char name[50];
+    string name;
     int rollno;
+    long long mobileno;
 
 public:
     void scan()
     {
-        cout << "Enter Name of the Student :" << endl;
-        gets(name);
+        cout << "Enter Name and mobile no. of the Student :" << endl;
+        cin >> name;
+        cin >> mobileno;
     }
     void display()
     {
-        cout << name;
+        cout << name << endl;
+        cout << mobileno;
     }
 };
 int main()
