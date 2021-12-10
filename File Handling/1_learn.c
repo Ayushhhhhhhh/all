@@ -11,7 +11,12 @@ int main()
     fputc('i', fileptr3);
     fputc('h', fileptr2);
     char ch = fgetc(fileptr);
-    printf("%c", ch);
+    for (char ch)
+    {
+        printf("%c", ch);
+        /* code */
+    }
+
     fprintf(fileptr, "My name is Ayush\n");
     fprintf(fileptr, "Mi llamo Ayush Singhal\n");
     fscanf(fileptr, "%s", data);

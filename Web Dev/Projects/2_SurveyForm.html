@@ -1,0 +1,91 @@
+<html5>
+    
+<style>
+    html {
+        background-color: rgb(141, 133, 250);
+    }
+
+    form {
+        background-color: rgb(91, 4, 141);
+        margin-left: 25%;
+        margin-right: 25%;
+        padding: 10px;
+    }
+
+    #title {
+        text-align: center;
+    }
+
+    #description {
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    }
+
+    #survey-form {
+
+        font-size: 1.5rem;
+        color: #fff;
+        display: block;
+
+    }
+    .form-group{
+        display: block;
+        padding: 1rem;
+    }
+
+</style>
+
+<h1 id="title">Survey Form</h1>
+<p id="description">Help us Improve by Filling the Survey form <br>--Thank you</p>
+<form id="survey-form">
+    <div class="form-group"><label for="name" id="name-label">Name</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+    </div>
+    <div class="form-group"><label for="email" id="email-label">Email</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your Email" required><br>
+    </div>
+    <div class="form-group"> <label for="age" id="number-label">Age(optional)</label><br>
+        <input type="number" id="number" name="age" placeholder="Enter your age" max="150" min="18"><br>
+    </div>
+    <div class="form-group"> <label for="rating" id="rating-label">Give us Rating: </label><br>
+        <select id="dropdown" name="rating">
+            <option value="">---select Rating---</option>
+            <option value="Very Good">Very Good</option>
+            <option value="Good">Good</option>
+            <option value="Average">Average</option>
+            <option value="Need to Improve">Need to Improve</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <p>How likely would you recommend us:</p>
+        <label for="Very-Likely" id="Very-Likely">
+            <input type="radio" id="Very-Likely" name="recommend" value="1" required>Very Likely</label><br>
+        <label for="Likely" id="Likely">
+            <input type="radio" id="Likely" name="recommend" value="2" required>Likely</label><br>
+        <label for="maybe" id="maybe">
+            <input type="radio" id="maybe" name="recommend" value="3" required>Maybe</label><br>
+        <label for="not-Likely" id="not-Likely">
+            <input type="radio" id="not-Likely" name="recommend" value="4" required>Not Likely</label><br>
+    </div>
+    <div class="form-group">
+        <p>From where did you came to know about us:</p>
+        <label for="Friend" id="Friend">
+            <input type="checkbox" id="Friend" name="Friend" value="friend">Friend</label><br>
+        <label for="Advertisement" id="Advertisement">
+            <input type="checkbox" id="Advertisement" name="Advertisement"
+                value="advertisement">Advertisement</label><br>
+        <label for="other" id="other">
+            <input type="checkbox" id="other" name="other" value="other">other</label><br>
+    </div>
+    <div class="form-group">
+        <p>Any other Addtional Comments:</p>
+    <textarea type="message" placeholder="Leave comments here"></textarea>
+    </div>
+    <div class="form-group" >
+        <input type="submit" id="submit" >
+    </div>
+</form>
+
+
+
+</html5>
