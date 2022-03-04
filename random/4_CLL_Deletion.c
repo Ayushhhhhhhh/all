@@ -43,7 +43,6 @@ void create()
     }
 }
 
-
 void deleteHead()
 {
     if (head)
@@ -118,7 +117,8 @@ void display()
 }
 
 int main()
-{   printf("--------------Circular Link List Implementation for Deletion Operation-------------\n");
+{
+    printf("--------------Circular Link List Implementation for Deletion Operation-------------\n");
     create();
     printf("Linked list:\n");
     deleteAt(3);

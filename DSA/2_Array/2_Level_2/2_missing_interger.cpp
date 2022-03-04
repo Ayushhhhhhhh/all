@@ -40,16 +40,7 @@ void printArray(int arr[100], int n)
 
 void missing(int *arr, int n)
 {
-    int flag = 0;
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i - 1] != i)
-        {
-            cout << "Missing integer : " << i << endl;
-            flag = 1;
-            break;
-        }
-    }
+
     if (flag == 0)
     {
         cout << "No Missing integer" << endl;

@@ -105,18 +105,18 @@ void display()
 }
 int main()
 {
-    insert(3);
+    insert(1);
     insert(6);
     insert(2);
     insert(3);
-    deleteHead();
+    // deleteHead();
     display();
 
-    insert(30);
+    // insert(30);
     insert(4, 3);
-    deleteTail();
-    // insert(7, 1);
-    // deleteAt(3);
+    // deleteTail();
+    //  insert(7, 1);
+    deleteAt(0);
     display();
     return 0;
 }
